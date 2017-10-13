@@ -25,6 +25,9 @@
     <Filter Include="Header Files\cheat">
       <UniqueIdentifier>{8fbe84e3-4dce-456b-a2e3-e5f0f27110b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{5f26093f-6698-46e5-a9bb-54a0b98f7ad4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="top.h">

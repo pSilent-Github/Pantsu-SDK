@@ -40,7 +40,7 @@ void __stdcall HookedPaintTraverse( int VGUIPanel, bool ForceRepaint, bool Allow
 	{
 		if ( EngineClient->IsInGame( ) && EngineClient->IsConnected( ) )
 		{
-			Render->DrawF( 10, 10, CColor( 26, 188, 156, 255 ), 5, 0, "[ pantsu-mephistopheles by madddie.co ]" );
+			Render->DrawF( 10, 10, CColor( 26, 188, 156, 255 ), 5, 0, "[ PantsuSDK By p$ilent & Maddie ]" );
 
 			ESP->Think( );
 		}
@@ -54,7 +54,7 @@ bool __stdcall HookedCreateMove( float SampleTime, CUserCmd* UserCmd )
 		return true;
 
 
-	/* code goes here */
+
 
 	if ( EngineClient->IsInGame( ) && EngineClient->IsConnected( ) )
 	{
@@ -63,7 +63,7 @@ bool __stdcall HookedCreateMove( float SampleTime, CUserCmd* UserCmd )
 		if ( !Local )
 			return true;
 
-		/* example bhop */
+		/* Auto Bunnyhop */
 		if ( UserCmd->Buttons & IN_JUMP )
 		{
 			if ( !( Local->GetFlags( ) & FL_ONGROUND ) )
@@ -71,11 +71,6 @@ bool __stdcall HookedCreateMove( float SampleTime, CUserCmd* UserCmd )
 				UserCmd->Buttons &= ~IN_JUMP;
 			}
 		}
-
-		// not accurate and does not look legit, todo; save angles
-		// idk why -= operator doesnt work, someone fix plz
-		UserCmd->ViewAngles.x -= Local->GetPunch( ).x * 2.f;
-		UserCmd->ViewAngles.y -= Local->GetPunch( ).y * 2.f;
 
 	}
 
@@ -92,9 +87,9 @@ void __stdcall Start( )
 	/* createinterface the objects we need */
 	Panel = ( IPanel* )Tools->GetInterface( "vgui2.dll", "VGUI_Panel009" );
 	Surface	= ( ISurface* )Tools->GetInterface( "vguimatsurface.dll", "VGUI_Surface031" );
-	EngineClient = ( IVEngineClient* )Tools->GetInterface( "engine.dll", "VEngineClient013" );
+	EngineClient = ( IVEngineClient* )Tools->GetInterface( "engine.dll", "VEngineClient014" );
 	ClientEntityList = ( IClientEntityList* )Tools->GetInterface( "client.dll",	"VClientEntityList003" );
-	BaseClientDll = ( IBaseClientDll* ) Tools->GetInterface( "client.dll", "VClient017" );
+	BaseClientDll = ( IBaseClientDll* ) Tools->GetInterface( "client.dll", "VClient018" );
 
 	/* get g_pClientMode */
 	void** BaseClientDllVMT = *( void*** ) BaseClientDll;
