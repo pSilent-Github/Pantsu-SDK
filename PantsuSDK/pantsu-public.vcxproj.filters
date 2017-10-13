@@ -28,6 +28,18 @@
     <Filter Include="Source Files\Menu">
       <UniqueIdentifier>{5f26093f-6698-46e5-a9bb-54a0b98f7ad4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Menu\Settings">
+      <UniqueIdentifier>{49c2f2fb-1acc-4197-bf5c-7210ba8ae4b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu\Buttons">
+      <UniqueIdentifier>{f4624dbe-7658-423c-adf1-09e58728e279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu\MenuItem">
+      <UniqueIdentifier>{20f73d1f-e1b2-4683-8cd8-17cb3ac596cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu\Keystroke">
+      <UniqueIdentifier>{bd3413d6-8d7e-4caa-9a10-de87bb6a9580}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="top.h">
@@ -87,10 +99,34 @@
     <ClInclude Include="globalvars.h">
       <Filter>Header Files\structs</Filter>
     </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Source Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.hpp">
+      <Filter>Source Files\Menu\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Buttons.hpp">
+      <Filter>Source Files\Menu\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuItem.hpp">
+      <Filter>Source Files\Menu\MenuItem</Filter>
+    </ClInclude>
+    <ClInclude Include="Keystroke.h">
+      <Filter>Source Files\Menu\Keystroke</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source Files\Menu\Settings</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

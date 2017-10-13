@@ -10,6 +10,8 @@
 #include "panel.h"
 #include "surface.h"
 #include "hook.h"
+#include "Menu.h"
+#include "Settings.hpp"
 
 CTools * Tools;
 IPanel * Panel;
@@ -44,7 +46,15 @@ void __stdcall HookedPaintTraverse( int VGUIPanel, bool ForceRepaint, bool Allow
 	if ( !strcmp( "FocusOverlayPanel", Panel->GetName( VGUIPanel ) ) )
 	{
 		Render->DrawF(10, 10, CColor(255, 255, 255, 255), 5, 0, watermark);
-		if ( EngineClient->IsInGame( ) && EngineClient->IsConnected( ) )
+		static auto m_bMenuActive = false;
+		if (GetAsyncKeyState(VK_INSERT) & 1)
+			m_bMenuActive = !m_bMenuActive;
+
+		if (m_bMenuActive) {
+			g_pMenu->InsertMenuItems();
+			g_pMenu->DrawMenu();
+		}
+		if ( EngineClient->IsInGame( ) && EngineClient->IsConnected( ) && Settings::m_bESP )
 		{
 			ESP->Think( );
 		}
@@ -70,7 +80,7 @@ bool __stdcall HookedCreateMove( float SampleTime, CUserCmd* UserCmd )
 		/* Auto Bunnyhop */
 		if ( UserCmd->Buttons & IN_JUMP )
 		{
-			if ( !( Local->GetFlags( ) & FL_ONGROUND ) )
+			if ( !( Local->GetFlags( ) & FL_ONGROUND )  && Settings::m_bAutoHop)
 			{
 				UserCmd->Buttons &= ~IN_JUMP;
 			}
@@ -88,7 +98,7 @@ void __stdcall Start( )
 	Tools = new CTools;
 
 
-	/* createinterface the objects we need */
+	
 	Panel = ( IPanel* )Tools->GetInterface( "vgui2.dll", "VGUI_Panel009" );
 	Tools->PrintToConsole("VGUI_Panel009");
 	Surface	= ( ISurface* )Tools->GetInterface( "vguimatsurface.dll", "VGUI_Surface031" );
@@ -100,21 +110,21 @@ void __stdcall Start( )
 	BaseClientDll = ( IBaseClientDll* ) Tools->GetInterface( "client.dll", "VClient018" );
 	Tools->PrintToConsole("VClient018");
 
-	/* get g_pClientMode */
+
 	void** BaseClientDllVMT = *( void*** ) BaseClientDll;
 	ClientMode = *( IClientMode*** ) ( ( DWORD ) BaseClientDllVMT[ 10 ] + 5 );
 
-	/* init cheat */
+
 	ESP = new CESP;
 
-	/* setup ptrav hook */
+
 	PanelHook = new CHook( ( DWORD** ) Panel );
 
 	_PaintTraverse = ( PaintTraverse ) PanelHook->dwHookMethod( ( DWORD ) HookedPaintTraverse, 41 );
 
 	Tools->PrintToConsole("PaintTraverse Hooked");
 
-	/* setup cmove hook */
+	
 	CreateMoveHook = new CHook( *( DWORD*** ) ClientMode );
 
 	_CreateMove = ( CreateMove ) CreateMoveHook->dwHookMethod( ( DWORD ) HookedCreateMove, 24 );

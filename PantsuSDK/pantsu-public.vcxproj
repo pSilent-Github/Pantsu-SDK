@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="base-client.h" />
+    <ClInclude Include="Buttons.hpp" />
     <ClInclude Include="client-entity-list.h" />
     <ClInclude Include="clientmode.h" />
     <ClInclude Include="color.h" />
@@ -156,11 +157,16 @@
     <ClInclude Include="esp.h" />
     <ClInclude Include="globalvars.h" />
     <ClInclude Include="hook.h" />
+    <ClInclude Include="Includes.hpp" />
+    <ClInclude Include="Keystroke.h" />
     <ClInclude Include="matrix3x4.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuItem.hpp" />
     <ClInclude Include="netchannel.h" />
     <ClInclude Include="panel.h" />
     <ClInclude Include="playerinfo.h" />
     <ClInclude Include="render.h" />
+    <ClInclude Include="Settings.hpp" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="top.h" />
     <ClInclude Include="usercmd.h" />
@@ -169,6 +175,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
