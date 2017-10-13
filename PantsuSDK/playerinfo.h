@@ -7,4 +7,4 @@ struct PlayerInfo_t
 	char Name[ 32 ];
 
 	char PAD2[ 0x200 ];
-};
+};	

@@ -51,9 +51,9 @@ public:
 					else
 						Color = CColor( 0, 255, 255, 255 );
 
-					Render->DrawF( Screen.x, Screen.y + 2, Color, 5, 1, "- %s -", Info.Name );
-
-					Render->DrawF( Head.x, Head.y - 12, Color, 5, 1, "- %d -", Entity->GetHealth( ) );
+					Render->DrawF(Head.x, Head.y - 12, CColor(255, 255, 255, 255), 5, 1, "%s", Info.Name );
+					
+					Render->DrawF(Screen.x, Screen.y + 2, CColor(255, 255, 255, 255), 5, 1, "HP: %d", Entity->GetHealth( ) );
 
 					int Height = Screen.y - Head.y, Width = Height / 2.5;
 

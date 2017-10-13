@@ -6,6 +6,9 @@
 #include <iostream>
 
 #include "usercmd.h"
+#include "viewsetup.h"
+#include "netchannel.h"
+#include "globalvars.h"
 
 #pragma endregion
 
@@ -16,6 +19,8 @@ typedef void*	( *Interface )( char* _Name, int Return );
 typedef void( __thiscall *PaintTraverse )( void*, unsigned int, bool, bool );
 
 typedef bool( __thiscall *CreateMove )( void*, float, CUserCmd* );
+
+typedef void(__thiscall *Overrideview)(void*, float, CViewSetup*);
 
 #pragma endregion
 

@@ -78,6 +78,15 @@
     <ClInclude Include="usercmd.h">
       <Filter>Header Files\structs</Filter>
     </ClInclude>
+    <ClInclude Include="viewsetup.h">
+      <Filter>Header Files\structs</Filter>
+    </ClInclude>
+    <ClInclude Include="netchannel.h">
+      <Filter>Header Files\structs</Filter>
+    </ClInclude>
+    <ClInclude Include="globalvars.h">
+      <Filter>Header Files\structs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

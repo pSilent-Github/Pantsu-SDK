@@ -154,8 +154,10 @@
     <ClInclude Include="engine-client.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="esp.h" />
+    <ClInclude Include="globalvars.h" />
     <ClInclude Include="hook.h" />
     <ClInclude Include="matrix3x4.h" />
+    <ClInclude Include="netchannel.h" />
     <ClInclude Include="panel.h" />
     <ClInclude Include="playerinfo.h" />
     <ClInclude Include="render.h" />
@@ -163,6 +165,7 @@
     <ClInclude Include="top.h" />
     <ClInclude Include="usercmd.h" />
     <ClInclude Include="vector.h" />
+    <ClInclude Include="viewsetup.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

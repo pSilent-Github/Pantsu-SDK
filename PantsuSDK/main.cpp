@@ -17,12 +17,15 @@ IClientMode ** ClientMode;
 IVEngineClient * EngineClient;
 IBaseClientDll * BaseClientDll;
 IClientEntityList * ClientEntityList;
-
+CViewSetup * ViewSetup;
+INetChannel * NetChannel;
+CGlobalVars *Globalvars;
 /* cheat */
 #include "esp.h"
 
 CHook * PanelHook;
 CHook * CreateMoveHook;
+CHook * OverrideviewHook;
 
 CESP * ESP;
 CRender * Render;
@@ -30,6 +33,7 @@ CRender * Render;
 PaintTraverse _PaintTraverse;
 CreateMove _CreateMove;
 
+Overrideview _OverrideView;
 /* ptrav hook function */
 void __stdcall HookedPaintTraverse( int VGUIPanel, bool ForceRepaint, bool AllowForce )
 {
@@ -38,10 +42,9 @@ void __stdcall HookedPaintTraverse( int VGUIPanel, bool ForceRepaint, bool Allow
 	/* right panel */
 	if ( !strcmp( "FocusOverlayPanel", Panel->GetName( VGUIPanel ) ) )
 	{
+		Render->DrawF(10, 10, CColor(255, 255, 255, 255), 5, 0, "[ PantsuSDK By p$ilent & Maddie ]");
 		if ( EngineClient->IsInGame( ) && EngineClient->IsConnected( ) )
 		{
-			Render->DrawF( 10, 10, CColor( 26, 188, 156, 255 ), 5, 0, "[ PantsuSDK By p$ilent & Maddie ]" );
-
 			ESP->Think( );
 		}
 	}
@@ -107,7 +110,6 @@ void __stdcall Start( )
 	CreateMoveHook = new CHook( *( DWORD*** ) ClientMode );
 
 	_CreateMove = ( CreateMove ) CreateMoveHook->dwHookMethod( ( DWORD ) HookedCreateMove, 24 );
-
 
 	return;
 }
