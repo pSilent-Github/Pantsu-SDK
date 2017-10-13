@@ -1,8 +1,6 @@
 #include "top.h"
 
-/* Cool sdk for epic gamers
-ya 2 cool 4 u
-*/
+/* Pretty Simple And Self Explanatory SDK */
 #include "client-entity-list.h"
 #include "engine-client.h"
 #include "base-client.h"
