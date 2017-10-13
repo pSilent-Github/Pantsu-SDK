@@ -1,3 +1,3 @@
 Credits For This SDK
-Pantsu - Original Base
+Maddie - Original Base
 Valve - Classes
